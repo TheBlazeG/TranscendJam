@@ -30,6 +30,11 @@ public class ButtonMenuUI : MonoBehaviour
         Debug.Log("Saliendo del juego...");
         Application.Quit();
     }
+    public void BackMenu()
+    {
+        nextScene = "Menu";
+        StartCoroutine(nameof(ChangeScene));
+    }
 
     private IEnumerator ChangeScene()
     {
