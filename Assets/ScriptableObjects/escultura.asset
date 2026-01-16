@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
+  m_Name: escultura
+  m_EditorClassIdentifier: 
+  category: 5
+  monetaryValue: 11000
+  emotionalValue: 5
+  itemSprite: {fileID: 6793251223557262341, guid: 6a493c96f44e7d748b480c7e3988b279, type: 3}
