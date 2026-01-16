@@ -9,7 +9,7 @@ public class ButtonMenuUI : MonoBehaviour
     private string nextScene;
     public void StartNewGame()
     {
-        nextScene = "Escena 1";
+        nextScene = "SampleScene";
         StartCoroutine(nameof(ChangeScene));
     }
 
