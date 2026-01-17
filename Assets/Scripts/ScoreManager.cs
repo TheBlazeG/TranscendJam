@@ -25,6 +25,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI onScreenTrait1;
     [SerializeField] TextMeshProUGUI onScreenTrait2;
 
+    public AudioSource sell;
+    public AudioSource keep;
+
 
 
     private void Awake()
@@ -138,6 +141,7 @@ public class ScoreManager : MonoBehaviour
         }
         if (emotionalBonus + currentItem.emotionalValue>emotionalSanity)
             return;
+        sell.Play();
         emotionalSanity -=(currentItem.emotionalValue+emotionalBonus);
         debt-=currentItem.monetaryValue;
         UpdateDebt();
@@ -160,6 +164,7 @@ public class ScoreManager : MonoBehaviour
     //función para guardar item; drena monto disponible y suma sanidad
     public void KeepItem()
     {
+        keep.Play();
         int emotionalBonus;
         if (currentItem.category == playerLike1 || currentItem.category == playerLike2)
         {
