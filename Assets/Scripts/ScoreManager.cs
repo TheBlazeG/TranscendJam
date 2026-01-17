@@ -1,5 +1,7 @@
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
@@ -8,17 +10,22 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI onScreenDebt;
     [SerializeField] TextMeshProUGUI onScreenItemCategory;
+    [SerializeField] TextMeshProUGUI onScreenItemSanityCost;
+    [SerializeField] TextMeshProUGUI onScreenItemValue;
     [SerializeField] public Image[] onScreenSanity;
     Items currentItem;
-    DraggableItems items;
+    [SerializeField] DraggableItems items;
     int currentItemIndex=0;
     int totalValueOfItems;
-    int debt = 372000;
+    public float debt = 37200;
     public int interestPerSecond = 0;
     int emotionalSanity = 4;
-    ItemCategories playerLike1;
-    ItemCategories playerLike2;
-    
+    ItemCategories playerLike1 = new ItemCategories();
+    ItemCategories playerLike2 = new ItemCategories();
+    [SerializeField] TextMeshProUGUI onScreenTrait1;
+    [SerializeField] TextMeshProUGUI onScreenTrait2;
+
+
 
     private void Awake()
     {
@@ -33,22 +40,39 @@ public class ScoreManager : MonoBehaviour
                 Destroy(this);
             }
         }
+        
+    }
+    private void Start()
+    {
         currentItem = items.itemsToDecide[currentItemIndex];
         items.UpdateSprite(currentItemIndex);
-        UpdateItemCategory();
+        UpdateItemCategoryCostAndValue();
         UpdateDebt();
         UpdateEmotionalSanity();
         UpdateValue();
-
+        foreach (var item in items.itemsToDecide)
+        {
+            totalValueOfItems += item.monetaryValue;
+        }
         //gustos del personaje asignados de manera aleatoria
-        int like1=Random.Range(0, 7);
-        int like2=Random.Range(0, 7);
+        int like1 = Random.Range(0, 7);
+        int like2 = Random.Range(0, 7);
         while (like2 == like1)
         {
-            like2=Random.Range(0, 6);
+            like2 = Random.Range(0, 6);
         }
         playerLike1 = (ItemCategories)like1;
         playerLike2 = (ItemCategories)like2;
+        
+        SetupPersonalityTraits();
+    }
+
+    private void SetupPersonalityTraits()
+    {
+        string trait1=playerLike1.ToString();
+        string trait2=playerLike2.ToString();
+        onScreenTrait1.text = trait1;
+        onScreenTrait2.text = trait2;
     }
 
     private void Update()
@@ -56,13 +80,21 @@ public class ScoreManager : MonoBehaviour
         AddDebt();
         if (debt>totalValueOfItems)
         {
-            
+            LoseGame();
         }
+        if (debt<=0)
+        {
+            WinGame();
+        }
+
+        
     }
 
-    private void UpdateItemCategory()
+    private void UpdateItemCategoryCostAndValue()
     {
         onScreenItemCategory.text=currentItem.category.ToString();
+        onScreenItemSanityCost.text =currentItem.emotionalValue.ToString();
+        onScreenItemValue.text =currentItem.monetaryValue.ToString();
     }
 
     //función para actualizar el valor emocional visible en UI
@@ -84,12 +116,12 @@ public class ScoreManager : MonoBehaviour
     private void UpdateValue()
     {
         totalValueOfItems-=currentItem.monetaryValue;
-        Debug.Log("no has agregado el codigo para objetos");
+        
     }
     //función para actualizar el monto de deuda visible en UI
     void UpdateDebt()
     {
-        onScreenDebt.text = debt.ToString();
+        onScreenDebt.text = ((int)debt).ToString();
     }
 
     //función para vender item; drena valor emocional a la sanidad, resta monto disponible y resta dinero a la deuda
@@ -104,6 +136,8 @@ public class ScoreManager : MonoBehaviour
         {
              emotionalBonus = 0;
         }
+        if (emotionalBonus + currentItem.emotionalValue>emotionalSanity)
+            return;
         emotionalSanity -=(currentItem.emotionalValue+emotionalBonus);
         debt-=currentItem.monetaryValue;
         UpdateDebt();
@@ -114,12 +148,12 @@ public class ScoreManager : MonoBehaviour
             items.itemsToDecide.Remove(currentItem);
             currentItemIndex = Random.Range(0,items.itemsToDecide.Count);
         currentItem=items.itemsToDecide[currentItemIndex];
-            UpdateItemCategory();
+            UpdateItemCategoryCostAndValue();
             items.UpdateSprite(currentItemIndex);
         }
         else
         {
-            //lose code
+            LoseGame();
         }
     }
 
@@ -136,6 +170,7 @@ public class ScoreManager : MonoBehaviour
             emotionalBonus = 0;
         }
         emotionalSanity +=(currentItem.emotionalValue+emotionalBonus);
+        emotionalSanity= Mathf.Clamp(emotionalSanity,0,5);
         UpdateValue();
         UpdateEmotionalSanity();
         if (items.itemsToDecide.Count > 0)
@@ -143,18 +178,33 @@ public class ScoreManager : MonoBehaviour
             items.itemsToDecide.Remove(currentItem);
             currentItemIndex = Random.Range(0, items.itemsToDecide.Count);
             currentItem = items.itemsToDecide[currentItemIndex];
-            UpdateItemCategory();
+            UpdateItemCategoryCostAndValue();
             items.UpdateSprite(currentItemIndex);
+
         }
         else 
         {
-        //lose code
+            LoseGame();
         }
     }
     
     public void AddDebt()
     {
-        debt += interestPerSecond;
+        debt += interestPerSecond*Time.deltaTime;
+        UpdateDebt();
+    }
+
+    void LoseGame()
+    {
+        Debug.Log("Lose");
+        SceneManager.LoadScene("You lose");
+    } 
+
+    void WinGame()
+    {
+        Debug.Log("win");
+        SceneManager.LoadScene("You win");
+
     }
 
 }

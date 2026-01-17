@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
   m_Name: vestido
   m_EditorClassIdentifier: 
-  category: 6
+  category: 4
   monetaryValue: 8000
   emotionalValue: 2
   itemSprite: {fileID: -6765714798933328798, guid: 97f496e653681fa458d111235641cabf, type: 3}

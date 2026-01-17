@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
   m_Name: camara
   m_EditorClassIdentifier: 
-  category: 4
+  category: 5
   monetaryValue: 3000
   emotionalValue: 2
   itemSprite: {fileID: -1684449808544159662, guid: 8e96da4eea4897d47b9d5263d069c523, type: 3}

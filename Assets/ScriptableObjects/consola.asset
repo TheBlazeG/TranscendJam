@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
   m_Name: consola
   m_EditorClassIdentifier: 
-  category: 5
+  category: 6
   monetaryValue: 4000
   emotionalValue: 4
   itemSprite: {fileID: 3638473230501181490, guid: 2aed581786b735447a2398c7866d9202, type: 3}

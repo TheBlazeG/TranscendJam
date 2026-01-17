@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
   m_Name: whisky
   m_EditorClassIdentifier: 
-  category: 2
+  category: 3
   monetaryValue: 7000
   emotionalValue: 3
   itemSprite: {fileID: -7461477099325547080, guid: 32a2fddafc0cff94f82e1c9a5ade2a00, type: 3}

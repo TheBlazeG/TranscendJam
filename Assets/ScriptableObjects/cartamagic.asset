@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: 6
   monetaryValue: 6000
-  emotionalValue: 4
+  emotionalValue: 3
   itemSprite: {fileID: 6311585757520244069, guid: fed661b6640f5f94dac26a99f76a6ec7, type: 3}
