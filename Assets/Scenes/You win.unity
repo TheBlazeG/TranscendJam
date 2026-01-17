@@ -281,7 +281,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1210079182553902986, guid: 742f1b16f667c8947a222eaf59cbe48a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -444,7 +444,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480879986}
   m_CullTransparentMesh: 1
---- !u!1 &1478069100
+--- !u!1 &1206289404
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,22 +452,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1478069102}
-  - component: {fileID: 1478069101}
+  - component: {fileID: 1206289406}
+  - component: {fileID: 1206289405}
   m_Layer: 0
-  m_Name: fotogrande_0
+  m_Name: fotogrande_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &1478069101
+--- !u!212 &1206289405
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478069100}
+  m_GameObject: {fileID: 1206289404}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -504,30 +504,30 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -4426936103943822569, guid: d1db4b53610bf974689cd00178ce4eb0, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -4426936103943822569, guid: e6e3040ed2997e247b97541805ef2e65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.94, y: 0.96}
+  m_Size: {x: 2.9375, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1478069102
+--- !u!4 &1206289406
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478069100}
+  m_GameObject: {fileID: 1206289404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.54, y: 0.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -2.95, y: 1.08, z: 0}
+  m_LocalScale: {x: 1.64, y: 1.64, z: 1.64}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -591,7 +591,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: dd2055a5c48a9f8478ecd15ec45bd897, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -809,6 +809,7 @@ GameObject:
   - component: {fileID: 2063423594}
   - component: {fileID: 2063423593}
   - component: {fileID: 2063423592}
+  - component: {fileID: 2063423595}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -879,7 +880,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2063423593}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2063423595}
+        m_TargetAssemblyTypeName: ButtonMenuUI, Assembly-CSharp
+        m_MethodName: BackMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2063423593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,6 +931,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063423590}
   m_CullTransparentMesh: 1
+--- !u!114 &2063423595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063423590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872f04d2965d4cf46b5fb64db37bf145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2097531729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1030,6 @@ SceneRoots:
   - {fileID: 1484721884}
   - {fileID: 176181189}
   - {fileID: 1749910952}
-  - {fileID: 1478069102}
   - {fileID: 107058807}
   - {fileID: 2097531732}
+  - {fileID: 1206289406}

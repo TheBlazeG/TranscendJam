@@ -62,7 +62,7 @@ public class DraggableItems : MonoBehaviour
                 ScoreManager.instance.SellItem();
             }
             storageArea = null;
-            transform.position = Vector2.zero;
+            transform.position = new Vector2(0,-1.6f);
 
         }
     }
