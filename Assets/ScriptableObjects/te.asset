@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
-  m_Name: NewItem
+  m_Name: te
   m_EditorClassIdentifier: 
-  category: 0
-  monetaryValue: 50
+  category: 2
+  monetaryValue: 1000
   emotionalValue: 3
-  itemSprite: {fileID: -4493377935930531221, guid: 5dc781c19db5f9f408ea6a0214f2f5df, type: 3}
+  itemSprite: {fileID: 1212938019689649092, guid: 66902cdaf02e039438898070885dec69, type: 3}
