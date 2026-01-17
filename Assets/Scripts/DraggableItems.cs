@@ -11,12 +11,19 @@ public class DraggableItems : MonoBehaviour
     [SerializeField] LayerMask areasLayer;
     public List<Items> itemsToDecide;
     Collider2D results;
-    private void Start()
+    private void Awake()
     {
         //obtener componente de spriteRenderer
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        float xClamp = Mathf.Clamp(transform.position.x, -8.4f, 8.4f);
+        float yClamp = Mathf.Clamp(transform.position.y, -4.5f, 4.5f);
+
+        transform.position = new Vector3(xClamp, yClamp, 0);
+    }
     private void OnMouseDrag()
     {
         //cambia el color del sprite mas grisáceo para dar feedback y mueve el objeto según el mouse delta mientras hace el mouse invisible
@@ -28,7 +35,7 @@ public class DraggableItems : MonoBehaviour
     private void OnMouseUp()
     {
         //revisa si soltaste el objeto en alguna zona de guardado, sea venta o guardar
-        results = Physics2D.OverlapCircle(transform.position, 2, areasLayer);
+        results = Physics2D.OverlapCircle(transform.position, 1, areasLayer);
         if (results!=null)
         {
             storageArea = results.gameObject;
@@ -55,11 +62,15 @@ public class DraggableItems : MonoBehaviour
                 ScoreManager.instance.SellItem();
             }
             storageArea = null;
-            transform.position = Vector2.zero;
+            transform.position = new Vector2(0,-1.6f);
 
         }
     }
 
+    private void OnDisable()
+    {
+        Cursor.visible = true;
+    }
     public void UpdateSprite(int index)
     {
         spriteRenderer.sprite= itemsToDecide[index].itemSprite;

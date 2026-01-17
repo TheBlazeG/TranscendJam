@@ -15,4 +15,4 @@ MonoBehaviour:
   category: 4
   monetaryValue: 4000
   emotionalValue: 3
-  itemSprite: {fileID: -3707240214653666574, guid: b4294062d4c7e4f4da79a62b7e70ae6a, type: 3}
+  itemSprite: {fileID: -3707240214653666574, guid: 0614ea4a14f0719448b8695192e21efa, type: 3}

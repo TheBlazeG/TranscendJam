@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
   m_Name: cartapokemon
   m_EditorClassIdentifier: 
-  category: 5
+  category: 6
   monetaryValue: 2000
   emotionalValue: 1
   itemSprite: {fileID: -2411951257764299251, guid: 06ed543bc82797d4aafe5b63754b1a82, type: 3}

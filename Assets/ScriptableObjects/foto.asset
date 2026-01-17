@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: foto
   m_EditorClassIdentifier: 
   category: 5
-  monetaryValue: 5
+  monetaryValue: 50
   emotionalValue: 5
   itemSprite: {fileID: 6211985666924808985, guid: b38771f0dc898414a8bf3098b804041d, type: 3}
