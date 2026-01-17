@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ae4a3e0da75f343a087650d51fafed, type: 3}
   m_Name: miserable
   m_EditorClassIdentifier: 
-  category: 6
-  monetaryValue: 0
-  emotionalValue: 0
-  itemSprite: {fileID: 0}
+  category: 1
+  monetaryValue: 500
+  emotionalValue: 2
+  itemSprite: {fileID: -7931173489382172465, guid: ce1be6f85efb3704bba19eb503029ba8, type: 3}
