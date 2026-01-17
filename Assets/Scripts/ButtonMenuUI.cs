@@ -13,6 +13,12 @@ public class ButtonMenuUI : MonoBehaviour
         StartCoroutine(nameof(ChangeScene));
     }
 
+    public void InstructionsMenu()
+    {
+        nextScene = "Instructions";
+        StartCoroutine(nameof(ChangeScene));
+    }
+
     public void SettingsMenu()
     {
         nextScene = "Settings";
